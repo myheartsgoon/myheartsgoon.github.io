@@ -103,10 +103,12 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="官方文档：http://docs.ansible.com/ansible/latest/intro.html 安装：yum install -y ansible 添加主机到/etc/ansible/hosts中：可以自定义组名进行分组，也可以部分组直接添加独立的主机： 使用ansible的ping模块测试：可以只指定某台主机的IP地址（需要在/etc/ansible/hosts 文件中存在）：an">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-07T12:06:16.697Z">
+<meta property="og:image" content="http://yoursite.com/images/Ansible-Basic-1_2.png">
+<meta property="og:updated_time" content="2017-09-08T10:08:58.676Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ansible Basic (1)">
 <meta name="twitter:description" content="官方文档：http://docs.ansible.com/ansible/latest/intro.html 安装：yum install -y ansible 添加主机到/etc/ansible/hosts中：可以自定义组名进行分组，也可以部分组直接添加独立的主机： 使用ansible的ping模块测试：可以只指定某台主机的IP地址（需要在/etc/ansible/hosts 文件中存在）：an">
+<meta name="twitter:image" content="http://yoursite.com/images/Ansible-Basic-1_2.png">
 
 
 
@@ -370,7 +372,7 @@
       
         <p>官方文档：<a href="http://docs.ansible.com/ansible/latest/intro.html" target="_blank" rel="external">http://docs.ansible.com/ansible/latest/intro.html</a></p>
 <p>安装：<br>yum install -y ansible</p>
-<p>添加主机到/etc/ansible/hosts中：<br>可以自定义组名进行分组，也可以部分组直接添加独立的主机：</p>
+<p>添加主机到/etc/ansible/hosts中：<br>可以自定义组名进行分组，也可以部分组直接添加独立的主机：<br><img src="/images/Ansible-Basic-1_2.png" alt=""></p>
 <p>使用ansible的ping模块测试：<br>可以只指定某台主机的IP地址（需要在/etc/ansible/hosts 文件中存在）：ansible 192.168.64.140 -m ping -k  （由于没有添加互相信任，因此需要添加-k参数来使用密码进行操作）</p>
 <p>或者指定组名：ansible test -m ping -k</p>
 <p>还可以直接对所有主机进行操作：ansible all -m ping -k</p>
