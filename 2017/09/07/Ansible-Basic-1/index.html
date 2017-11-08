@@ -1,10 +1,34 @@
-<!DOCTYPE html><html lang="zh-Hans"><head><meta charset="UTF-8"><title>Ansible Basic (1)</title><link rel="stylesheet" href="css/normalize.css"><link rel="stylesheet" href="/css/hexo-theme-adoubi.css"><link rel="icon" href="/images/favicon.ico"></head><body><div class="header"><a class="github-link"><img class="github-image" src="/images/Aquicon-Github-small.png"></a><a class="email-link" href="mailto:null"><img class="email-image" src="/images/email-small.png"></a><a class="subscribe-link" href="/atom.xml"><img class="subscribe-image" src="/images/subscribe-small.png"></a></div><div class="content"><div class="post-item"></div><h2 class="post-title-wrapper"><p class="post-title">Ansible Basic (1)</p></h2><div class="post-date"><time datetime="2017-09-07T12:03:23.000Z">2017-09-07</time></div><div class="post-content"><p>官方文档：<a href="http://docs.ansible.com/ansible/latest/intro.html" target="_blank" rel="external">http://docs.ansible.com/ansible/latest/intro.html</a></p>
-<p>安装：<br>yum install -y ansible</p>
-<p>添加主机到/etc/ansible/hosts中：<br>可以自定义组名进行分组，也可以部分组直接添加独立的主机：<br><img src="/images/Ansible-Basic-1_2.png" alt=""></p>
-<p>使用ansible的ping模块测试：<br>可以只指定某台主机的IP地址（需要在/etc/ansible/hosts 文件中存在）：ansible 192.168.64.140 -m ping -k  （由于没有添加互相信任，因此需要添加-k参数来使用密码进行操作）</p>
-<p>或者指定组名：ansible test -m ping -k</p>
-<p>还可以直接对所有主机进行操作：ansible all -m ping -k</p>
-<p>不需要输入密码直接对主机进行操作：<br>生成公钥密钥：ssh-keygen -t rsa</p>
-<p>拷贝公钥到被控主机：ssh-copy-id -i /root/.ssh/id_rsa.pub root@192.168.64.140</p>
-<p>现在就不需要输入密码就可以直接操控主机了：ansible test -m ping</p>
-</div></div><div class="footer"><div class="footer-copyright">Theme By <a href="https://github.com/shinux/hexo-theme-adoubi">Adoubi</a> , Powered By Hexo.</div></div></body></html>
+include mixins
+
+extends partial/layout
+
+block site_title
+    != page.title + " · " + config.title
+
+block description
+    - var desc = page.desc || strip_html(page.content).replace(/^\s*/, '').replace(/\s*$/, '').substring(0, 150);
+    meta(name="description", content=desc)
+
+block content
+  .autopagerize_page_element: .content: .post-page
+    include mixins
+    +make_post(page, true)
+    .share
+      .evernote
+        a.fa.fa-bookmark(href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&title='+encodeURIComponent(document.title);}})();", ref="nofollow", target="_blank")
+      .weibo
+        a.fa.fa-weibo(href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&title=',e(d.title),'&appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));")
+      .twitter
+        a.fa.fa-twitter(href=url_for("http://twitter.com/home?status="+","+config.url+"/"+page.path+","+config.title+","+page.title+",;"))
+    - var prev = page.prev ? page.prev.path : false;
+    - var next = page.next ? page.next.path : false;
+    .pagination
+      ul.clearfix
+        if prev
+          li.pre.pagbuttons
+            a.btn(role="navigation",href=url_for(prev), title=page.prev.title)!= __('prev_post')
+        if next
+          li.next.pagbuttons
+            a.btn(role="navigation",href=url_for(next), title=page.next.title)!= __('next_post')
+    if page.comments
+        include partial/comments
