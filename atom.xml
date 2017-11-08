@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Hexo</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2017-09-08T10:10:19.558Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>Wesley</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Ansible Basic (1)</title>
+    <link href="http://yoursite.com/2017/09/07/Ansible-Basic-1/"/>
+    <id>http://yoursite.com/2017/09/07/Ansible-Basic-1/</id>
+    <published>2017-09-07T12:03:23.000Z</published>
+    <updated>2017-09-08T10:10:19.558Z</updated>
+    
+    <content type="html"><![CDATA[<p>官方文档：<a href="http://docs.ansible.com/ansible/latest/intro.html" target="_blank" rel="external">http://docs.ansible.com/ansible/latest/intro.html</a></p><p>安装：<br>yum install -y ansible</p><p>添加主机到/etc/ansible/hosts中：<br>可以自定义组名进行分组，也可以部分组直接添加独立的主机：<br><img src="/images/Ansible-Basic-1_2.png" alt=""></p><p>使用ansible的ping模块测试：<br>可以只指定某台主机的IP地址（需要在/etc/ansible/hosts 文件中存在）：ansible 192.168.64.140 -m ping -k  （由于没有添加互相信任，因此需要添加-k参数来使用密码进行操作）</p><p>或者指定组名：ansible test -m ping -k</p><p>还可以直接对所有主机进行操作：ansible all -m ping -k</p><p>不需要输入密码直接对主机进行操作：<br>生成公钥密钥：ssh-keygen -t rsa</p><p>拷贝公钥到被控主机：ssh-copy-id -i /root/.ssh/id_rsa.pub root@192.168.64.140</p><p>现在就不需要输入密码就可以直接操控主机了：ansible test -m ping</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;官方文档：&lt;a href=&quot;http://docs.ansible.com/ansible/latest/intro.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://docs.ansible.com/ansible/latest/in
+      
+    
+    </summary>
+    
+      <category term="运维" scheme="http://yoursite.com/categories/%E8%BF%90%E7%BB%B4/"/>
+    
+    
+      <category term="Ansible" scheme="http://yoursite.com/tags/Ansible/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://yoursite.com/2017/09/06/hello-world/"/>
+    <id>http://yoursite.com/2017/09/06/hello-world/</id>
+    <published>2017-09-06T11:41:52.971Z</published>
+    <updated>2017-09-06T11:41:52.972Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
